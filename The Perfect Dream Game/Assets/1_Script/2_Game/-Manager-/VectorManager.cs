@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class VectorManager : MonoBehaviour
 {
-    //読み取り先スクリプト
-    [SerializeField] private GameSceneManagerScript gamescenemanagerscript;
-    [SerializeField] private ColliderManager colliderManager;
-    [SerializeField] private JapaneseManager japaneseManager;
     [Header("カメラの定位置")]
     [SerializeField] private Vector3 CameraFixedPosition;
     [SerializeField] private Vector3 CameraFixedRotation;

@@ -16,7 +16,7 @@ public class GameSceneManagerScript : MonoBehaviour
 [HideInInspector] public ;
 [SerializeField] private ;
     */
-    //読み取り先スクリプト
+    [Header("読み取り先スクリプト")]
     [SerializeField] private ColliderManager colliderManager;
     [SerializeField] private VectorManager vectorManager;
     [SerializeField] private JapaneseManager japaneseManager;
@@ -79,30 +79,6 @@ public class GameSceneManagerScript : MonoBehaviour
     // 読み取り専用プロパティ
     public float moveSpeed => MoveSpeed;
     public float rotateSpeed => RotateSpeed;
-    [Header("部屋でのコライダー")]
-    [SerializeField] private Collider UpDesk;
-    [SerializeField] private Collider Bed;
-    [SerializeField] private Collider Door;
-    // 読み取り専用プロパティ
-    public Collider upDesk => UpDesk;
-    public Collider bed => Bed;
-    public Collider door => Door;
-    [Header("夢でのコライダー")]
-    [SerializeField] private Collider ReturnDoor;
-    [SerializeField] private Collider English;
-    [SerializeField] private Collider Science;
-    [SerializeField] private Collider Mathematics;
-    [SerializeField] private Collider Japanese;
-    [SerializeField] private Collider SocialStudies;
-    [SerializeField] private Collider Ahead;
-    // 読み取り専用プロパティ
-    public Collider returnDoor => ReturnDoor;
-    public Collider english => English;
-    public Collider science => Science;
-    public Collider mathematics => Mathematics;
-    public Collider japanese => Japanese;
-    public Collider socialStudies => SocialStudies;
-    public Collider ahead => Ahead;
     [Header("表示テキスト")]
     [SerializeField] private GameObject OrTextObject;
     // 読み取り専用プロパティ
@@ -116,6 +92,7 @@ public class GameSceneManagerScript : MonoBehaviour
     private Vector3 CameraFixedRotation;
     // キャラクターの定位置
     private Vector3 CharacterFixedPosition;
+    //----------------------------------------------------------------------------
     // カメラとキャラの移動先位置
     // 机のカメラ位置
     private Vector3 DeskCameraDestinationPosition;
@@ -127,62 +104,47 @@ public class GameSceneManagerScript : MonoBehaviour
     private Vector3 DreamCameraDestinationRotation;
     // ドアの先のキャラクター位置
     private Vector3 DreamCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 dreamCharacterDestinationPosition => DreamCharacterDestinationPosition;
     // 国語のドアの先のカメラ位置
     private Vector3 JapaneseCameraDestinationPosition;
     private Vector3 JapaneseCameraDestinationRotation;
-    // 読み取り専用プロパティ
-    public Vector3 japaneseCameraDestinationPosition => JapaneseCameraDestinationPosition;
-    public Vector3 japaneseCameraDestinationRotation => JapaneseCameraDestinationRotation;
     // 国語のドアの先のキャラクター位置
     private Vector3 JapaneseCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 japaneseCharacterDestinationPosition => JapaneseCharacterDestinationPosition;
     // 社会のドアの先のカメラ位置
     private Vector3 SocialStudiesCameraDestinationPosition;
     private Vector3 SocialStudiesCameraDestinationRotation;
-    // 読み取り専用プロパティ
-    public Vector3 socialStudiesCameraDestinationPosition => SocialStudiesCameraDestinationPosition;
-    public Vector3 socialStudiesCameraDestinationRotation => SocialStudiesCameraDestinationRotation;
     // 社会のドアの先のキャラクター位置
     private Vector3 SocialStudiesCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 socialStudiesCharacterDestinationPosition => SocialStudiesCharacterDestinationPosition;
     // 数学のドアの先のカメラ位置
     private Vector3 MathematicsCameraDestinationPosition;
     private Vector3 MathematicsCameraDestinationRotation;
-    // 読み取り専用プロパティ
-    public Vector3 mathematicsCameraDestinationPosition => MathematicsCameraDestinationPosition;
-    public Vector3 mathematicsCameraDestinationRotation => MathematicsCameraDestinationRotation;
     // 数学のドアの先のキャラクター位置
     private Vector3 MathematicsCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 mathematicsCharacterDestinationPosition => MathematicsCharacterDestinationPosition;
     // 理科のドアの先のカメラ位置
     private Vector3 ScienceCameraDestinationPosition;
     private Vector3 ScienceCameraDestinationRotation;
-    // 読み取り専用プロパティ
-    public Vector3 scienceCameraDestinationPosition => ScienceCameraDestinationPosition;
-    public Vector3 scienceCameraDestinationRotation => ScienceCameraDestinationRotation;
     // 理科のドアの先のキャラクター位置
     private Vector3 ScienceCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 scienceCharacterDestinationPosition => ScienceCharacterDestinationPosition;
     // 英語のドアの先のカメラ位置
     private Vector3 EnglishCameraDestinationPosition;
     private Vector3 EnglishCameraDestinationRotation;
-    // 読み取り専用プロパティ
-    public Vector3 englishCameraDestinationPosition => EnglishCameraDestinationPosition;
-    public Vector3 englishCameraDestinationRotation => EnglishCameraDestinationRotation;
     // 英語のドアの先のキャラクター位置
     private Vector3 EnglishCharacterDestinationPosition;
-    // 読み取り専用プロパティ
-    public Vector3 englishCharacterDestinationPosition => EnglishCharacterDestinationPosition;
     // テキスト移動先位置
     private Vector2 DeskAnchoredPosition;
     private Vector2 BedAnchoredPosition;
     private Vector2 DoorAnchoredPosition;
+    //部屋でのコライダー")]
+    private Collider UpDesk;
+    private Collider Bed;
+    private Collider Door;
+    //夢でのコライダー")]
+    private Collider ReturnDoor;
+    private Collider English;
+    private Collider Science;
+    private Collider Mathematics;
+    private Collider Japanese;
+    private Collider SocialStudies;
+    private Collider Ahead;
     void Start()
     {
         HamburgerMenuButton.onClick.AddListener(hamburgermenubutton);
@@ -204,33 +166,6 @@ public class GameSceneManagerScript : MonoBehaviour
         //クロスフェードでBGM切り替え（2番の曲、1.5秒かけて）
         AudioManager.Instance.CrossFadeToBGM(2, 1.5f);
         */
-        CameraFixedPosition = vectorManager.cameraFixedPosition;
-        CameraFixedRotation = vectorManager.cameraFixedRotation;
-        CharacterFixedPosition = vectorManager.characterFixedPosition;
-        DeskCameraDestinationPosition = vectorManager.deskCameraDestinationPosition;
-        DeskCameraDestinationRotation = vectorManager.deskCameraDestinationRotation;
-        DeskCharacterDestinationPosition = vectorManager.deskCharacterDestinationPosition;
-        DreamCameraDestinationPosition = vectorManager.dreamCameraDestinationPosition;
-        DreamCameraDestinationRotation = vectorManager.dreamCameraDestinationRotation;
-        DreamCharacterDestinationPosition = vectorManager.dreamCharacterDestinationPosition;
-        JapaneseCameraDestinationPosition = vectorManager.japaneseCameraDestinationPosition;
-        JapaneseCameraDestinationRotation = vectorManager.japaneseCameraDestinationRotation;
-        JapaneseCharacterDestinationPosition = vectorManager.japaneseCharacterDestinationPosition;
-        SocialStudiesCameraDestinationPosition = vectorManager.socialStudiesCameraDestinationPosition;
-        SocialStudiesCameraDestinationRotation = vectorManager.socialStudiesCameraDestinationRotation;
-        SocialStudiesCharacterDestinationPosition = vectorManager.socialStudiesCharacterDestinationPosition;
-        MathematicsCameraDestinationPosition = vectorManager.mathematicsCameraDestinationPosition;
-        MathematicsCameraDestinationRotation = vectorManager.mathematicsCameraDestinationRotation;
-        MathematicsCharacterDestinationPosition = vectorManager.mathematicsCharacterDestinationPosition;
-        ScienceCameraDestinationPosition = vectorManager.scienceCameraDestinationPosition;
-        ScienceCameraDestinationRotation = vectorManager.scienceCameraDestinationRotation;
-        ScienceCharacterDestinationPosition = vectorManager.scienceCharacterDestinationPosition;
-        EnglishCameraDestinationPosition = vectorManager.englishCameraDestinationPosition;
-        EnglishCameraDestinationRotation = vectorManager.englishCameraDestinationRotation;
-        EnglishCharacterDestinationPosition = vectorManager.englishCharacterDestinationPosition;
-        DeskAnchoredPosition = vectorManager.deskAnchoredPosition;
-        BedAnchoredPosition = vectorManager.bedAnchoredPosition;
-        DoorAnchoredPosition = vectorManager.doorAnchoredPosition;
     }
     void hamburgermenubutton()//SettingMenuを見えるようにする
     {

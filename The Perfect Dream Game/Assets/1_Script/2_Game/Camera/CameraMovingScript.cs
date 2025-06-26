@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovingScript : MonoBehaviour
 {
-    //読み取り先スクリプト
+    [Header("読み取り先スクリプト")]
     [SerializeField] private GameSceneManagerScript gamescenemanagerscript;
     private Transform TargetPlayer;
     void Start()

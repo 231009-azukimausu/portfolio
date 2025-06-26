@@ -37,9 +37,9 @@ public class CharacterHitScript : MonoBehaviour
     {
         //private型のもの達に、vectorManagerのデータを入れておく
         TargetPlayer = gamescenemanagerscript.targetPlayer;
-        UpDesk = gamescenemanagerscript.upDesk;
-        Bed = gamescenemanagerscript.bed;
-        Door = gamescenemanagerscript.door;
+        UpDesk = colliderManager.upDesk;
+        Bed = colliderManager.bed;
+        Door = colliderManager.door;
         OrTextObject = gamescenemanagerscript.orTextObject;
         MindImage = gamescenemanagerscript.mindImage;
         DeskAnchoredPosition = vectorManager.deskAnchoredPosition;
@@ -47,13 +47,13 @@ public class CharacterHitScript : MonoBehaviour
         DoorAnchoredPosition = vectorManager.doorAnchoredPosition;
         DeskCameraDestinationPosition = vectorManager.deskCameraDestinationPosition;
         DeskCameraDestinationRotation = vectorManager.deskCameraDestinationRotation;
-        ReturnDoor = gamescenemanagerscript.returnDoor;
-        English = gamescenemanagerscript.english;
-        Science = gamescenemanagerscript.science;
-        Mathematics = gamescenemanagerscript.mathematics;
-        Japanese = gamescenemanagerscript.japanese;
-        SocialStudies = gamescenemanagerscript.socialStudies;
-        Ahead = gamescenemanagerscript.ahead;
+        ReturnDoor = colliderManager.returnDoor;
+        English = colliderManager.english;
+        Science = colliderManager.science;
+        Mathematics = colliderManager.mathematics;
+        Japanese = colliderManager.japanese;
+        SocialStudies = colliderManager.socialStudies;
+        Ahead = colliderManager.ahead;
     }
 
     private void OnTriggerEnter(Collider other)// 入ったときの処理
