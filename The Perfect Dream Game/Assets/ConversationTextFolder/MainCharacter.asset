@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7798089cf1345428c8c7a39b0fc8e1, type: 3}
+  m_Name: MainCharacter
+  m_EditorClassIdentifier: 
+  speakerName: "\u67F4\u51DB\u592A\u90CE"
+  paragraphs:
+  - "\u3053\u3093\u306B\u3061\u306F\uFF5E\u6B4C\u3046\u5FCD\u72AC\u306E\u67F4\u51DB\u592A\u90CE\u3067\u3054\u3056\u308B\u3088\uFF5E"
