@@ -10,9 +10,14 @@ public class CharacterHitScript : MonoBehaviour
     [SerializeField] private GameSceneManagerScript gamescenemanagerscript;
     [SerializeField] private ColliderManager colliderManager;
     [SerializeField] private VectorManager vectorManager;
-    [HideInInspector] public bool Dream = false;
+    [SerializeField] private CameraMovingScript cameraMovingScript;
+    private bool Dream;
     private RectTransform rectTransform;
+    private Transform CameraTransform;
     private Transform TargetPlayer;
+    private bool DeskHasSwitched = false;
+    private bool BedHasSwitched = false;
+    private bool DoorHasSwitched = false;
     //ターゲットコライダー
     private Collider UpDesk;
     private Collider Bed;
@@ -33,9 +38,14 @@ public class CharacterHitScript : MonoBehaviour
     private Collider Japanese;
     private Collider SocialStudies;
     private Collider Ahead;
+    private Image testPrint;
     void Start()
     {
         //private型のもの達に、vectorManagerのデータを入れておく
+
+        // 読み取り専用プロパティ
+        Dream = gamescenemanagerscript.dream;
+        CameraTransform = gamescenemanagerscript.cameraTransform;
         TargetPlayer = gamescenemanagerscript.targetPlayer;
         UpDesk = colliderManager.upDesk;
         Bed = colliderManager.bed;
@@ -48,11 +58,11 @@ public class CharacterHitScript : MonoBehaviour
         DeskCameraDestinationPosition = vectorManager.deskCameraDestinationPosition;
         DeskCameraDestinationRotation = vectorManager.deskCameraDestinationRotation;
         ReturnDoor = colliderManager.returnDoor;
-        English = colliderManager.english;
-        Science = colliderManager.science;
-        Mathematics = colliderManager.mathematics;
         Japanese = colliderManager.japanese;
         SocialStudies = colliderManager.socialStudies;
+        Mathematics = colliderManager.mathematics;
+        Science = colliderManager.science;
+        English = colliderManager.english;
         Ahead = colliderManager.ahead;
     }
 
@@ -80,31 +90,70 @@ public class CharacterHitScript : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         // 入っているコライダーがUpDeskかつ、Xボタンもしくは左クリックを押したら
-        if (other == UpDesk && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))
+        if (other == UpDesk && !DeskHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))
         {
-            //DeskCameraDestinationPosition
-            //DeskCameraDestinationRotation
+            DeskHasSwitched = true;
+            CameraTransform.transform.position = vectorManager.deskCameraDestinationPosition;
+            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.deskCameraDestinationRotation);
+            TargetPlayer.transform.position = vectorManager.deskCharacterDestinationPosition;
         }
-        if (other == Bed && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入っているコライダーがBedなら
+        // キーが離されたらリセットする
+        if (Input.GetKeyUp(KeyCode.X) || Input.GetMouseButtonUp(0))
         {
+            DeskHasSwitched = false;
+        }
+        if (other == Bed && !BedHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入っているコライダーがBedなら
+        {
+            BedHasSwitched = true;
             Dream = !Dream;
+            Debug.Log(Dream);
         }
-        if (other == Door && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入っているコライダーがDoorなら
+        // キーが離されたらリセットする
+        if (Input.GetKeyUp(KeyCode.X) || Input.GetMouseButtonUp(0))
+        {
+            BedHasSwitched = false;
+        }
+        if (other == Door && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入っているコライダーがDoorなら
         {
             if (Dream == true)
             {
-                //WarpToPosition(targetPosition);
+                DoorHasSwitched = true;
+                CameraTransform.transform.position = vectorManager.dreamCameraDestinationPosition;
+                CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.dreamCameraDestinationRotation);
+                TargetPlayer.transform.position = vectorManager.dreamCharacterDestinationPosition;
             }
             else
             {
-                MindImage.SetActive(true);
+                DoorHasSwitched = true;
+                gamescenemanagerscript.mindImage.SetActive(true);
             }
+        }
+        if (Input.GetKeyUp(KeyCode.X) || Input.GetMouseButtonUp(0))
+        {
+            DoorHasSwitched = false;
         }
     }
 
     private void OnTriggerExit(Collider other)// 何かしらコライダーから出たときの処理
     {
+        if (other == UpDesk)// 入ったコライダーがUpDeskなら
+        {
+            //カメラを定位置に戻す
+            CameraTransform.transform.position = vectorManager.cameraFixedPosition;
+            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
+        }
+        if (other == Bed)// 入ったコライダーがBedなら
+        {
+            //カメラを定位置に戻す
+            CameraTransform.transform.position = vectorManager.cameraFixedPosition;
+            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
+        }
+        if (other == Door)// 入ったコライダーがDoorなら
+        {
+            cameraMovingScript.enabled = true; // 強制的にONにする
+        }
         OrTextObject.SetActive(false);//OrTextObjectを非表示にする
+        gamescenemanagerscript.testPrint.SetActive(false);//testPrintを非表示にする
         MindImage.SetActive(false);//MindImageを非表示にする
     }
 }

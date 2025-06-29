@@ -26,6 +26,9 @@ public class GameSceneManagerScript : MonoBehaviour
     [SerializeField] private GameObject SettingMenu;
     [Header("チェックイメージ")]
     [SerializeField] private GameObject CheckImage;
+    [Header("学業成績表イメージ")]
+    [SerializeField] private GameObject TestPrint;
+    public GameObject testPrint => TestPrint;
     [Header("ハンバーガーメニュー表示用ボタン")]
     [SerializeField] private Button HamburgerMenuButton;
     [Header("セッティングメニュー透明背後ボタン")]
@@ -34,6 +37,8 @@ public class GameSceneManagerScript : MonoBehaviour
     [SerializeField] private Button PositionResetButton;
     [Header("×ボタン")]
     [SerializeField] private Button XButton;
+    [Header("学業成績表背景ボタン")]
+    [SerializeField] private Button InvisibleTestPrintBackGroundImageButton;
     [Header("チェックボタン")]
     [SerializeField] private Button JapaneseCheckButton;
     [Header("ゲームに進むボタン")]
@@ -72,8 +77,8 @@ public class GameSceneManagerScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI OverallGradeText;
     [Header("読み取り元データ")]
     [Header("今居る世界")]
-    public bool Dream = false;
-    //dream = !dream; //反転させる
+    [SerializeField] private bool Dream = false;
+    public bool dream => Dream;
     [Header("カメラ")]
     [SerializeField] private Transform CameraTransform;
     // 読み取り専用プロパティ
@@ -160,6 +165,7 @@ public class GameSceneManagerScript : MonoBehaviour
         SettingMenuInvisibleImageButton.onClick.AddListener(settingmenuinvisibleimage);
         XButton.onClick.AddListener(settingmenuinvisibleimage);
         PositionResetButton.onClick.AddListener(positionresetbutton);
+        InvisibleTestPrintBackGroundImageButton.onClick.AddListener(invisibletestprintbackgroundimagebutton);
         JapaneseCheckButton.onClick.AddListener(japanesecheckbutton);
         JapaneseNextButton.onClick.AddListener(japanesenextbutton);
         JapaneseBackButton.onClick.AddListener(japanesebackbutton);
@@ -180,6 +186,12 @@ public class GameSceneManagerScript : MonoBehaviour
         */
         //ChallengingSubjects = 
     }
+    /*
+    void ()//
+    {
+
+    }
+    */
     void hamburgermenubutton()//SettingMenuを見えるようにする
     {
         SettingMenu.SetActive(true);
@@ -191,9 +203,13 @@ public class GameSceneManagerScript : MonoBehaviour
     }
     void positionresetbutton()//キャラクターをワープさせる
     {
-        CameraTransform.transform.position = CameraFixedPosition;
-        CameraTransform.transform.position = CameraFixedRotation;
-        TargetPlayer.transform.position = CharacterFixedPosition;
+        CameraTransform.transform.position = vectorManager.cameraFixedPosition;
+        CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
+        TargetPlayer.transform.position = vectorManager.characterFixedPosition;
+    }
+    void invisibletestprintbackgroundimagebutton()//
+    {
+        TestPrint.SetActive(false);
     }
     void japanesecheckbutton()//Japaneseの説明を次回起動時まで消す
     {
@@ -203,9 +219,12 @@ public class GameSceneManagerScript : MonoBehaviour
     {
 
     }
-    void japanesebackbutton()//
+    void japanesebackbutton()//ドア先の位置に戻る
     {
-        
+        FadeInOutImageObject.GetComponent<ImageFadeInOutScript>().StartCoroutine("IFadeIn");
+        CameraTransform.transform.position = vectorManager.dreamCameraDestinationPosition;
+        CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.dreamCameraDestinationRotation);
+        TargetPlayer.transform.position = vectorManager.dreamCharacterDestinationPosition;
     }
     public void BGMSliderMethod()//BGMSlider型に変更があった時に実行する変数
     {
