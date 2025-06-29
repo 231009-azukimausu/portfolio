@@ -22,16 +22,24 @@ public class GameSceneManagerScript : MonoBehaviour
     [SerializeField] private JapaneseManager japaneseManager;
     [Header("フェードイン・アウト用画像")]
     [SerializeField] private GameObject FadeInOutImageObject;
-    [Header("ハンバーガーメニュー表示用ボタン")]
-    [SerializeField] private Button HamburgerMenuButton;
     [Header("セッティングメニュー")]
     [SerializeField] private GameObject SettingMenu;
+    [Header("チェックイメージ")]
+    [SerializeField] private GameObject CheckImage;
+    [Header("ハンバーガーメニュー表示用ボタン")]
+    [SerializeField] private Button HamburgerMenuButton;
     [Header("セッティングメニュー透明背後ボタン")]
     [SerializeField] private Button SettingMenuInvisibleImageButton;
     [Header("ポジションリセットボタン")]
     [SerializeField] private Button PositionResetButton;
     [Header("×ボタン")]
     [SerializeField] private Button XButton;
+    [Header("チェックボタン")]
+    [SerializeField] private Button JapaneseCheckButton;
+    [Header("ゲームに進むボタン")]
+    [SerializeField] private Button JapaneseNextButton;
+    [Header("前に戻るボタン")]
+    [SerializeField] private Button JapaneseBackButton;
     [Header("スライダー類")]
     [SerializeField] private Slider BGMSlider;
     [SerializeField] private Slider SESlider;
@@ -47,21 +55,21 @@ public class GameSceneManagerScript : MonoBehaviour
     //[SerializeField] private Japanese japanese;
     [Header("テスト用数値")]
     [SerializeField] private int JapaneseScore = -1;
-    //[SerializeField] private int SocialStudiesScore = -1;
-    //[SerializeField] private int MathematicsScore = -1;
-    //[SerializeField] private int ScienceScore = -1;
-    //[SerializeField] private int EnglishScore = -1;
+    [SerializeField] private int SocialStudiesScore = -1;
+    [SerializeField] private int MathematicsScore = -1;
+    [SerializeField] private int ScienceScore = -1;
+    [SerializeField] private int EnglishScore = -1;
     private int ChallengingSubjects = 0;
     private int OverallGradeScore = 0;
+    [Header("成績表用スタンプ")]
+    [SerializeField] public Image Stamp;
     [Header("成績表用テキスト")]
     [SerializeField] private TextMeshProUGUI JapaneseText;
-    /*
     [SerializeField] private TextMeshProUGUI SocialStudiesText;
     [SerializeField] private TextMeshProUGUI MathematicsText;
     [SerializeField] private TextMeshProUGUI ScienceText;
     [SerializeField] private TextMeshProUGUI EnglishText;
     [SerializeField] private TextMeshProUGUI OverallGradeText;
-    */
     [Header("読み取り元データ")]
     [Header("今居る世界")]
     public bool Dream = false;
@@ -92,7 +100,7 @@ public class GameSceneManagerScript : MonoBehaviour
     private Vector3 CameraFixedRotation;
     // キャラクターの定位置
     private Vector3 CharacterFixedPosition;
-    //----------------------------------------------------------------------------
+    //――――――――――ここまで別スクリプトで使っているのを確認済み――――――――――
     // カメラとキャラの移動先位置
     // 机のカメラ位置
     private Vector3 DeskCameraDestinationPosition;
@@ -147,10 +155,14 @@ public class GameSceneManagerScript : MonoBehaviour
     private Collider Ahead;
     void Start()
     {
+        //ボタンををした時の処理を追加
         HamburgerMenuButton.onClick.AddListener(hamburgermenubutton);
         SettingMenuInvisibleImageButton.onClick.AddListener(settingmenuinvisibleimage);
         XButton.onClick.AddListener(settingmenuinvisibleimage);
         PositionResetButton.onClick.AddListener(positionresetbutton);
+        JapaneseCheckButton.onClick.AddListener(japanesecheckbutton);
+        JapaneseNextButton.onClick.AddListener(japanesenextbutton);
+        JapaneseBackButton.onClick.AddListener(japanesebackbutton);
         BGMSlider.value = NowBGM;//BGMSliderの音量をNowBGMの音量に変更する
         SESlider.value = NowSE;//SESliderの音量をNowSEの音量に変更する
         BGMText.text = NowBGM.ToString();//NowBGMの音量の数値をString型に変換し、BGMTextのText部分に入れる
@@ -166,6 +178,7 @@ public class GameSceneManagerScript : MonoBehaviour
         //クロスフェードでBGM切り替え（2番の曲、1.5秒かけて）
         AudioManager.Instance.CrossFadeToBGM(2, 1.5f);
         */
+        //ChallengingSubjects = 
     }
     void hamburgermenubutton()//SettingMenuを見えるようにする
     {
@@ -181,6 +194,18 @@ public class GameSceneManagerScript : MonoBehaviour
         CameraTransform.transform.position = CameraFixedPosition;
         CameraTransform.transform.position = CameraFixedRotation;
         TargetPlayer.transform.position = CharacterFixedPosition;
+    }
+    void japanesecheckbutton()//Japaneseの説明を次回起動時まで消す
+    {
+        CheckImage.SetActive(!CheckImage.activeSelf);
+    }
+    void japanesenextbutton()//
+    {
+
+    }
+    void japanesebackbutton()//
+    {
+        
     }
     public void BGMSliderMethod()//BGMSlider型に変更があった時に実行する変数
     {

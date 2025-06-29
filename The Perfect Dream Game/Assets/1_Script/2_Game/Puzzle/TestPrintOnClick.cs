@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TestPrintOnClick : MonoBehaviour
 {
-    //クリックしたらログを出す
     public void OnClickObj()
     {
-        Debug.Log("クリックしたよ");
+        //ChallengingSubjects = 
     }
 }
