@@ -23,7 +23,7 @@ public class CharacterHitScript : MonoBehaviour
     private Collider Bed;
     private Collider Door;
     //表示テキスト
-    private GameObject OrTextObject;
+    private GameObject TextObject;
     private GameObject MindImage;
     //テキスト移動先位置
     private Vector2 DeskAnchoredPosition;
@@ -38,6 +38,16 @@ public class CharacterHitScript : MonoBehaviour
     private Collider Japanese;
     private Collider SocialStudies;
     private Collider Ahead;
+    private Transform DeskTextTransform;
+    private Transform BedTextTransform;
+    private Transform DoorTextTransform;
+    private Transform TextTransform;
+    private Transform JapaneseTextTransform;
+    private Transform SocialstudiesTextTransform;
+    private Transform MathematicsTextTransform;
+    private Transform ScienseTextTransform;
+    private Transform EnglishTextTransform;
+    private Transform ReturndoorTextTransform;
     private Image testPrint;
     void Start()
     {
@@ -47,16 +57,25 @@ public class CharacterHitScript : MonoBehaviour
         Dream = gamescenemanagerscript.dream;
         CameraTransform = gamescenemanagerscript.cameraTransform;
         TargetPlayer = gamescenemanagerscript.targetPlayer;
-        UpDesk = colliderManager.upDesk;
-        Bed = colliderManager.bed;
-        Door = colliderManager.door;
-        OrTextObject = gamescenemanagerscript.orTextObject;
+        TextObject = gamescenemanagerscript.textObject;
         MindImage = gamescenemanagerscript.mindImage;
+        DeskTextTransform = gamescenemanagerscript.deskTextTransform;
+        BedTextTransform = gamescenemanagerscript.bedTextTransform;
+        DoorTextTransform = gamescenemanagerscript.doorTextTransform;
+        JapaneseTextTransform = gamescenemanagerscript.japaneseTextTransform;
+        SocialstudiesTextTransform = gamescenemanagerscript.socialstudiesTextTransform;
+        MathematicsTextTransform = gamescenemanagerscript.mathematicsTextTransform;
+        ScienseTextTransform = gamescenemanagerscript.scienseTextTransform;
+        EnglishTextTransform = gamescenemanagerscript.englishTextTransform;
+        ReturndoorTextTransform = gamescenemanagerscript.returndoorTextTransform;
         DeskAnchoredPosition = vectorManager.deskAnchoredPosition;
         BedAnchoredPosition = vectorManager.bedAnchoredPosition;
         DoorAnchoredPosition = vectorManager.doorAnchoredPosition;
         DeskCameraDestinationPosition = vectorManager.deskCameraDestinationPosition;
         DeskCameraDestinationRotation = vectorManager.deskCameraDestinationRotation;
+        UpDesk = colliderManager.upDesk;
+        Bed = colliderManager.bed;
+        Door = colliderManager.door;
         ReturnDoor = colliderManager.returnDoor;
         Japanese = colliderManager.japanese;
         SocialStudies = colliderManager.socialStudies;
@@ -70,21 +89,72 @@ public class CharacterHitScript : MonoBehaviour
     {
         if (other == UpDesk)// 入ったコライダーがUpDeskなら
         {
-            OrTextObject.SetActive(true);// OrTextObjectを表示する
-            rectTransform = OrTextObject.GetComponent<RectTransform>();// RectTransform を取得
-            rectTransform.anchoredPosition = DeskAnchoredPosition;// 位置を変更
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(DeskTextTransform);
+            TextObject.transform.localPosition = Vector3.zero;// ローカル位置を (0, 0, 0) に設定
+            TextObject.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
         }
         if (other == Bed)// 入ったコライダーがBedなら
         {
-            OrTextObject.SetActive(true);//OrTextObjectを表示する
-            rectTransform = OrTextObject.GetComponent<RectTransform>();// RectTransform を取得
-            rectTransform.anchoredPosition = BedAnchoredPosition;// 位置を変更
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(BedTextTransform);
+            TextObject.transform.localPosition = Vector3.zero;// ローカル位置を (0, 0, 0) に設定
+            TextObject.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
         }
         if (other == Door)// 入ったコライダーがDoorなら
         {
-            OrTextObject.SetActive(true);//OrTextObjectを表示する
-            rectTransform = OrTextObject.GetComponent<RectTransform>();// RectTransform を取得
-            rectTransform.anchoredPosition = DoorAnchoredPosition;// 位置を変更
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(DoorTextTransform);
+            TextObject.transform.localPosition = Vector3.zero;// ローカル位置を (0, 0, 0) に設定
+            TextObject.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
+        }
+        if (other == Japanese)// 入ったコライダーがJapaneseなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(JapaneseTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
+        }
+        if (other == SocialStudies)// 入ったコライダーがSocialStudiesなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(SocialstudiesTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
+        }
+        if (other == Mathematics)// 入ったコライダーがMathematicsなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(MathematicsTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
+        }
+        if (other == Science)// 入ったコライダーがScienceなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(ScienseTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
+        }
+        if (other == English)// 入ったコライダーがEnglishなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(EnglishTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
+        }
+        if (other == ReturnDoor)// 入ったコライダーがReturnDoorなら
+        {
+            TextObject.SetActive(true);//TextObjectを表示する
+            TextObject.transform.SetParent(ReturndoorTextTransform);
+            TextObject.transform.localPosition = vectorManager.textColliderPosition;
+            TextObject.transform.localRotation = Quaternion.Euler(vectorManager.textColliderRotation);
+            TextObject.transform.localScale = Vector3.one;
         }
     }
     void OnTriggerStay(Collider other)
@@ -121,6 +191,7 @@ public class CharacterHitScript : MonoBehaviour
                 CameraTransform.transform.position = vectorManager.dreamCameraDestinationPosition;
                 CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.dreamCameraDestinationRotation);
                 TargetPlayer.transform.position = vectorManager.dreamCharacterDestinationPosition;
+                cameraMovingScript.enabled = true; // 強制的にONにする
             }
             else
             {
@@ -132,6 +203,33 @@ public class CharacterHitScript : MonoBehaviour
         {
             DoorHasSwitched = false;
         }
+        if (other == Japanese && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがJapaneseなら
+        {
+            cameraMovingScript.enabled = false; // 強制的にOFFにする
+            CameraTransform.transform.position = vectorManager.japaneseCameraDestinationPosition;
+            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.japaneseCameraDestinationRotation);
+            TargetPlayer.transform.position = vectorManager.japaneseCharacterDestinationPosition;
+        }
+        if (other == SocialStudies && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがSocialStudiesなら
+        {
+
+        }
+        if (other == Mathematics && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがMathematicsなら
+        {
+
+        }
+        if (other == Science && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがScienceなら
+        {
+
+        }
+        if (other == English && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがEnglishなら
+        {
+
+        }
+        if (other == ReturnDoor && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがReturnDoorなら
+        {
+
+        }
     }
 
     private void OnTriggerExit(Collider other)// 何かしらコライダーから出たときの処理
@@ -142,17 +240,7 @@ public class CharacterHitScript : MonoBehaviour
             CameraTransform.transform.position = vectorManager.cameraFixedPosition;
             CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
         }
-        if (other == Bed)// 入ったコライダーがBedなら
-        {
-            //カメラを定位置に戻す
-            CameraTransform.transform.position = vectorManager.cameraFixedPosition;
-            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
-        }
-        if (other == Door)// 入ったコライダーがDoorなら
-        {
-            cameraMovingScript.enabled = true; // 強制的にONにする
-        }
-        OrTextObject.SetActive(false);//OrTextObjectを非表示にする
+        TextObject.SetActive(false);//TextObjectを非表示にする
         gamescenemanagerscript.testPrint.SetActive(false);//testPrintを非表示にする
         MindImage.SetActive(false);//MindImageを非表示にする
     }

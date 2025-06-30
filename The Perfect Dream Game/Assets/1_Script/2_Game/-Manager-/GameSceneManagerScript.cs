@@ -86,6 +86,34 @@ public class GameSceneManagerScript : MonoBehaviour
     [Header("キャラクター")]
     [SerializeField] private Transform TargetPlayer;//追従するキャラクター
     public Transform targetPlayer => TargetPlayer;
+    [Header("テキスト移動位置")]
+    [SerializeField] private Transform DeskTextTransform;//机のテキスト位置
+    //読み取り用
+    public Transform deskTextTransform => DeskTextTransform;
+    [SerializeField] private Transform BedTextTransform;//ベッドのテキスト位置
+    //読み取り用
+    public Transform bedTextTransform => BedTextTransform;
+    [SerializeField] private Transform DoorTextTransform;//ドアのテキスト位置
+    //読み取り用
+    public Transform doorTextTransform => DoorTextTransform;
+    [SerializeField] private Transform JapaneseTextTransform;//国語のテキスト位置
+    //読み取り用
+    public Transform japaneseTextTransform => JapaneseTextTransform;
+    [SerializeField] private Transform SocialstudiesTextTransform;//社会のテキスト位置
+    //読み取り用
+    public Transform socialstudiesTextTransform => SocialstudiesTextTransform;
+    [SerializeField] private Transform MathematicsTextTransform;//数学のテキスト位置
+    //読み取り用
+    public Transform mathematicsTextTransform => MathematicsTextTransform;
+    [SerializeField] private Transform ScienseTextTransform;//理科のテキスト位置
+    //読み取り用
+    public Transform scienseTextTransform => ScienseTextTransform;
+    [SerializeField] private Transform EnglishTextTransform;//英語のテキスト位置
+    //読み取り用
+    public Transform englishTextTransform => EnglishTextTransform;
+    [SerializeField] private Transform ReturndoorTextTransform;//帰還用ドアのテキスト位置
+    // //読み取り用
+    public Transform returndoorTextTransform => ReturndoorTextTransform;
     [Header("キャラクターの移動・回転")]
     [SerializeField] private float MoveSpeed = 2f;
     [SerializeField] private float RotateSpeed = 3f;
@@ -93,9 +121,9 @@ public class GameSceneManagerScript : MonoBehaviour
     public float moveSpeed => MoveSpeed;
     public float rotateSpeed => RotateSpeed;
     [Header("表示テキスト")]
-    [SerializeField] private GameObject OrTextObject;
+    [SerializeField] private GameObject TextObject;
     // 読み取り専用プロパティ
-    public GameObject orTextObject => OrTextObject;
+    public GameObject textObject => TextObject;
     [SerializeField] private GameObject MindImage;
     // 読み取り専用プロパティ
     public GameObject mindImage => MindImage;

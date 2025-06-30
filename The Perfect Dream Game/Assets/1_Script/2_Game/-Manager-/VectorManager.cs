@@ -93,4 +93,11 @@ public class VectorManager : MonoBehaviour
     public Vector2 deskAnchoredPosition => DeskAnchoredPosition;
     public Vector2 bedAnchoredPosition => BedAnchoredPosition;
     public Vector2 doorAnchoredPosition => DoorAnchoredPosition;
+    [Header("テキスト移動先位置")]
+    [SerializeField] private Vector3 TextColliderPosition;
+    // 読み取り専用プロパティ
+    public Vector3 textColliderPosition => TextColliderPosition;
+    [SerializeField] private Vector3 TextColliderRotation;
+    // 読み取り専用プロパティ
+    public Vector3 textColliderRotation => TextColliderRotation;
 }
