@@ -18,6 +18,7 @@ public class CharacterHitScript : MonoBehaviour
     private bool DeskHasSwitched = false;
     private bool BedHasSwitched = false;
     private bool DoorHasSwitched = false;
+    private bool DreamDoorHasSwitched = false;
     //ターゲットコライダー
     private Collider UpDesk;
     private Collider Bed;
@@ -163,6 +164,7 @@ public class CharacterHitScript : MonoBehaviour
         if (other == UpDesk && !DeskHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))
         {
             DeskHasSwitched = true;
+            gamescenemanagerscript.testPrintButtonObject.SetActive(true);//testPrintButtonObjectを表示する
             CameraTransform.transform.position = vectorManager.deskCameraDestinationPosition;
             CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.deskCameraDestinationRotation);
             TargetPlayer.transform.position = vectorManager.deskCharacterDestinationPosition;
@@ -203,32 +205,40 @@ public class CharacterHitScript : MonoBehaviour
         {
             DoorHasSwitched = false;
         }
-        if (other == Japanese && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがJapaneseなら
+        if (other == Japanese && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがJapaneseなら
         {
             cameraMovingScript.enabled = false; // 強制的にOFFにする
             CameraTransform.transform.position = vectorManager.japaneseCameraDestinationPosition;
             CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.japaneseCameraDestinationRotation);
             TargetPlayer.transform.position = vectorManager.japaneseCharacterDestinationPosition;
+            gamescenemanagerscript.japaneseImageObject.SetActive(true);
         }
-        if (other == SocialStudies && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがSocialStudiesなら
+        if (other == SocialStudies && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがSocialStudiesなら
         {
 
         }
-        if (other == Mathematics && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがMathematicsなら
+        if (other == Mathematics && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがMathematicsなら
         {
 
         }
-        if (other == Science && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがScienceなら
+        if (other == Science && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがScienceなら
         {
 
         }
-        if (other == English && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがEnglishなら
+        if (other == English && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがEnglishなら
         {
 
         }
-        if (other == ReturnDoor && !DoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがReturnDoorなら
+        if (other == ReturnDoor && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがReturnDoorなら
         {
-
+            cameraMovingScript.enabled = false; // 強制的にOFFにする
+            CameraTransform.transform.position = vectorManager.cameraFixedPosition;
+            CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
+            TargetPlayer.transform.position = vectorManager.characterFixedPosition;
+        }
+        if (Input.GetKeyUp(KeyCode.X) || Input.GetMouseButtonUp(0))
+        {
+            DreamDoorHasSwitched = false;
         }
     }
 
@@ -241,6 +251,7 @@ public class CharacterHitScript : MonoBehaviour
             CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.cameraFixedRotation);
         }
         TextObject.SetActive(false);//TextObjectを非表示にする
+        gamescenemanagerscript.testPrintButtonObject.SetActive(false);//testPrintButtonObjectを非表示にする
         gamescenemanagerscript.testPrint.SetActive(false);//testPrintを非表示にする
         MindImage.SetActive(false);//MindImageを非表示にする
     }
