@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3988382}
   - component: {fileID: 3988383}
+  - component: {fileID: 3988384}
   m_Layer: 0
   m_Name: ColliderObject (mathematics)
   m_TagString: Untagged
@@ -213,6 +214,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3988384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &28477546
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 57851276}
   - component: {fileID: 57851277}
+  - component: {fileID: 57851278}
   m_Layer: 0
   m_Name: ColliderObject (japanese)
   m_TagString: Untagged
@@ -348,6 +362,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &57851278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57851275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &62203519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,6 +1848,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000002, y: 26.8, z: 2.07}
   m_Center: {x: -0.00000011920929, y: -12.4, z: 0}
+--- !u!114 &203732201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203732191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &203732204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203732191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab31b3329f2fa340b625d7443248136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &226556184
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,6 +2252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274829750}
   - component: {fileID: 274829751}
+  - component: {fileID: 274829752}
   m_Layer: 0
   m_Name: ColliderObject (socialstudies)
   m_TagString: Untagged
@@ -2237,6 +2288,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &274829752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274829749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &284196528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3348,6 +3411,61 @@ Transform:
   m_Father: {fileID: 1278123628}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &519055005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519055006}
+  - component: {fileID: 519055007}
+  m_Layer: 0
+  m_Name: -InputManager-
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &519055006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519055005}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 597771951}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519055007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519055005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3601a9ab48da3458d01a363e842b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  responders:
+  - {fileID: 203732201}
+  - {fileID: 554345274}
+  - {fileID: 2023054369}
+  - {fileID: 1874489040}
+  - {fileID: 2095518127}
+  - {fileID: 57851278}
+  - {fileID: 274829752}
+  - {fileID: 3988384}
+  - {fileID: 1801701865}
+  - {fileID: 655038423}
 --- !u!1 &520500426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5979033647979075379, guid: d2ed89bf62eb35b4a91d7f9b7c9fcd69, type: 3}
@@ -3652,6 +3770,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6, y: 0.45, z: 4}
   m_Center: {x: 0, y: 0.045, z: 1}
+--- !u!114 &554345274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554345268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &572055487
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,6 +3877,7 @@ Transform:
   - {fileID: 122790957}
   - {fileID: 1612705846}
   - {fileID: 634193970}
+  - {fileID: 519055006}
   - {fileID: 1719775840}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -4008,6 +4139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 655038421}
   - component: {fileID: 655038422}
+  - component: {fileID: 655038423}
   m_Layer: 0
   m_Name: ColliderObject (english)
   m_TagString: Untagged
@@ -4043,6 +4175,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &655038423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655038420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &673321306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4400,10 +4544,6 @@ MonoBehaviour:
   NowBGM: 100
   NowSE: 100
   JapaneseScore: -1
-  SocialStudiesScore: -1
-  MathematicsScore: -1
-  ScienceScore: -1
-  EnglishScore: -1
   BGMText: {fileID: 423521318}
   SEText: {fileID: 434096367}
   JapaneseText: {fileID: 944894869}
@@ -11089,7 +11229,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 597771951}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1728668102
 GameObject:
@@ -11421,6 +11561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1801701863}
   - component: {fileID: 1801701864}
+  - component: {fileID: 1801701865}
   m_Layer: 0
   m_Name: ColliderObject (sciense)
   m_TagString: Untagged
@@ -11456,6 +11597,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1801701865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801701862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808538864
 GameObject:
   m_ObjectHideFlags: 0
@@ -11814,6 +11967,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874489038}
   - component: {fileID: 1874489039}
+  - component: {fileID: 1874489040}
   m_Layer: 0
   m_Name: ColliderObject (returndoor)
   m_TagString: Untagged
@@ -11849,6 +12003,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1874489040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874489037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1887406054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12776,6 +12942,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9999998, y: 1.6, z: 2}
   m_Center: {x: 0, y: -0.7, z: 0}
+--- !u!114 &2023054369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023054361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2024095440
 GameObject:
   m_ObjectHideFlags: 0
@@ -13769,6 +13947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2095518125}
   - component: {fileID: 2095518126}
+  - component: {fileID: 2095518127}
   m_Layer: 0
   m_Name: ColliderObject (ahead)
   m_TagString: Untagged
@@ -13804,6 +13983,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 4.5, z: 2.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2095518127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095518124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b31ffc84894e8428d90e9fa07bce48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2105151734
 GameObject:
   m_ObjectHideFlags: 0

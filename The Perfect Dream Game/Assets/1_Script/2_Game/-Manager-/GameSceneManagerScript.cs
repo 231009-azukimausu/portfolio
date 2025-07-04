@@ -49,12 +49,14 @@ public class GameSceneManagerScript : MonoBehaviour
     public float NowSE;//今のSEの音量を覚えておく変数
     [Header("テスト用数値")]
     [SerializeField] private int JapaneseScore = -1;
+    /*
     [SerializeField] private int SocialStudiesScore = -1;
     [SerializeField] private int MathematicsScore = -1;
     [SerializeField] private int ScienceScore = -1;
     [SerializeField] private int EnglishScore = -1;
     private int ChallengingSubjects = 0;
     private int OverallGradeScore = 0;
+    */
     [Header("テキスト類")]
     [Header("音量数値テキスト")]
     [SerializeField] private TextMeshProUGUI BGMText;
