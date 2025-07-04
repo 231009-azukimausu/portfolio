@@ -81,8 +81,8 @@ public class GameSceneManagerScript : MonoBehaviour
     [SerializeField] private GameObject TestPrint;
     public GameObject testPrint => TestPrint;
     [Header("Japaneseイメージ")]
-    [SerializeField] private GameObject JapaneseImageObject;
-    public GameObject japaneseImageObject => JapaneseImageObject;
+    [SerializeField] private GameObject OperationManualImage;
+    public GameObject operationManualImage => OperationManualImage;
     [Header("表示テキスト")]
     [SerializeField] private GameObject TextObject;
     // 読み取り専用プロパティ

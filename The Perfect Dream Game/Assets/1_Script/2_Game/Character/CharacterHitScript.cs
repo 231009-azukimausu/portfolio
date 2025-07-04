@@ -211,7 +211,7 @@ public class CharacterHitScript : MonoBehaviour
             CameraTransform.transform.position = vectorManager.japaneseCameraDestinationPosition;
             CameraTransform.transform.rotation = Quaternion.Euler(vectorManager.japaneseCameraDestinationRotation);
             TargetPlayer.transform.position = vectorManager.japaneseCharacterDestinationPosition;
-            gamescenemanagerscript.japaneseImageObject.SetActive(true);
+            gamescenemanagerscript.operationManualImage.SetActive(true);
         }
         if (other == SocialStudies && !DreamDoorHasSwitched && (Input.GetKeyDown(KeyCode.X) || Input.GetMouseButtonDown(0)))// 入ったコライダーがSocialStudiesなら
         {
